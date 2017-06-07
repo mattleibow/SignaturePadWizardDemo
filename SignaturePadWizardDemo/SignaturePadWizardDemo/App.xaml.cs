@@ -8,8 +8,6 @@ namespace SignaturePadWizardDemo
 
 		public App()
 		{
-			personalDetails = new PersonalDetailsModel();
-
 			InitializeComponent();
 
 			RestartWizard();
@@ -21,6 +19,8 @@ namespace SignaturePadWizardDemo
 
 		public void RestartWizard()
 		{
+			personalDetails = new PersonalDetailsModel();
+
 			MainPage = new NavigationPage(new MainPage());
 		}
 
