@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:signature="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:converters="clr-namespace:SignaturePadWizardDemo.Converters"
+             x:Class="SignaturePadWizardDemo.SignaturePage"
+             Title="Signature"
+             Padding="12">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NegateConverter x:Key="Negate" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid ColumnSpacing="12" RowSpacing="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- contents -->
+        <StackLayout Grid.ColumnSpan="2" Spacing="12">
+
+            <Label Text="Please draw your signature below:"
+                    LineBreakMode="WordWrap" />
+
+            <signature:SignaturePadView x:Name="signaturePad"
+                                        HeightRequest="250"
+                                        BackgroundColor="#FBFBFB"
+                                        SignatureLineColor="DarkGray" StrokeColor="Black" StrokeWidth="2"
+                                        CaptionText="sign above this line" CaptionTextColor="DarkGray"
+                                        ClearText="clear signature" ClearTextColor="DarkGray"
+                                        PromptText="" />
+
+        </StackLayout>
+
+        <!-- navigation -->
+        <Button Text="&lt; Back" Clicked="OnBackClicked"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource Negate}}"
+                Grid.Row="1" Grid.Column="0" />
+        <Button Text="Continue &gt;" Clicked="OnNextClicked"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource Negate}}"
+                Grid.Row="1" Grid.Column="1" />
+
+    </Grid>
+
+</ContentPage>

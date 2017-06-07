@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignaturePadWizardDemo.SuccessPage"
+             Title="Success!"
+             Padding="12">
+
+    <Grid ColumnSpacing="12" RowSpacing="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- contents -->
+        <ScrollView Grid.ColumnSpan="2">
+            <StackLayout Spacing="12">
+
+                <Label Text="{Binding FullName, StringFormat='Thank you {0}!'}"
+                       LineBreakMode="WordWrap" />
+
+                <Label Text="Thank you for taking the time to fill out your details. We will take it from here."
+                       LineBreakMode="WordWrap" />
+
+                <Label Text="Enjoy the rest of your day!"
+                       LineBreakMode="WordWrap" />
+
+            </StackLayout>
+        </ScrollView>
+
+        <!-- navigation -->
+        <Button Text="Restart" Clicked="OnRestartClicked"
+                Grid.Row="1" Grid.Column="1" />
+
+    </Grid>
+
+</ContentPage>

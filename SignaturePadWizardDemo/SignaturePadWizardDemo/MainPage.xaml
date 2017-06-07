@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SignaturePadWizardDemo"
+             x:Class="SignaturePadWizardDemo.MainPage"
+             Title="Welcome"
+             Padding="12">
+
+    <Grid ColumnSpacing="12" RowSpacing="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- contents -->
+        <ScrollView Grid.ColumnSpan="2">
+            <StackLayout Spacing="12">
+
+                <Label Text="Welcome to the SignaturePad wizard demo app!"
+                       LineBreakMode="WordWrap" />
+
+                <Label Text="In this demo, we will show a possible scenario in which the you, as a typical user, are asked to enter your details and then provide a signature using SignaturePad."
+                       LineBreakMode="WordWrap" />
+
+                <Label Text="Enjoy!"
+                       LineBreakMode="WordWrap" />
+
+            </StackLayout>
+        </ScrollView>
+
+        <!-- navigation -->
+        <Button Text="Continue &gt;" Clicked="OnNextClicked"
+                Grid.Row="1" Grid.Column="1" />
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:SignaturePadWizardDemo.Converters"
+             x:Class="SignaturePadWizardDemo.ConfirmPage"
+             Title="Confirm"
+             Padding="12">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:YesNoConverter x:Key="YesNo" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid ColumnSpacing="12" RowSpacing="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- contents -->
+        <ScrollView Grid.ColumnSpan="2">
+            <StackLayout Spacing="12">
+
+                <Label Text="Please confirm that the details below are correct before continuing:"
+                       LineBreakMode="WordWrap" />
+
+                <Label Text="First Name:" Margin="0,0,0,-6" />
+                <Label Text="{Binding PersonalDetails.FirstName}" FontAttributes="Bold" />
+
+                <Label Text="Last Name:" Margin="0,0,0,-6" />
+                <Label Text="{Binding PersonalDetails.LastName}" FontAttributes="Bold" />
+
+                <Label Text="Favourite IDE:" Margin="0,0,0,-6" />
+                <Label Text="{Binding PersonalDetails.FavouriteIde}" FontAttributes="Bold" />
+
+                <Label Text="Do you like Xamarin.Forms:" Margin="0,0,0,-6" />
+                <Label Text="{Binding PersonalDetails.LikeXamarinForms, Converter={StaticResource YesNo}}" FontAttributes="Bold" />
+
+                <Label Text="Do you like SignaturePad:" Margin="0,0,0,-6" />
+                <Label Text="{Binding PersonalDetails.LikeSignaturePad, Converter={StaticResource YesNo}}" FontAttributes="Bold" />
+
+                <Label Text="Signature:" Margin="0,0,0,-6" />
+                <Image Source="{Binding SignatureImage}" HorizontalOptions="Start" Margin="0,0,0,-6" />
+                <Label Text="{Binding SignatureSize}" FontAttributes="Italic" />
+
+            </StackLayout>
+        </ScrollView>
+
+        <!-- navigation -->
+        <Button Text="&lt; Back" Clicked="OnBackClicked"
+                Grid.Row="1" Grid.Column="0" />
+        <Button Text="Continue &gt;" Clicked="OnNextClicked"
+                Grid.Row="1" Grid.Column="1" />
+
+    </Grid>
+
+</ContentPage>

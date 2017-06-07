@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignaturePadWizardDemo.PersonalDetailsPage"
+             Title="Personal Details"
+             Padding="12">
+
+    <Grid ColumnSpacing="12" RowSpacing="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- contents -->
+        <ScrollView Grid.ColumnSpan="2">
+            <StackLayout Spacing="12">
+
+                <Label Text="Please enter your details below:"
+                       LineBreakMode="WordWrap" />
+
+                <Label Text="First Name:" Margin="0,0,0,-6" />
+                <Entry Placeholder="Joe" Text="{Binding PersonalDetails.FirstName}" />
+
+                <Label Text="Last Name:" Margin="0,0,0,-6" />
+                <Entry Placeholder="Soap" Text="{Binding PersonalDetails.LastName}" />
+
+                <Label Text="Favourite IDE:" Margin="0,0,0,-6" />
+                <Entry Placeholder="visual studio, vs code, emacs, vim, notepad" Text="{Binding PersonalDetails.FavouriteIde}" />
+
+                <Label Text="Do you like Xamarin.Forms:" Margin="0,0,0,-6" />
+                <Switch IsToggled="{Binding PersonalDetails.LikeXamarinForms}" />
+
+                <Label Text="Do you like SignaturePad:" Margin="0,0,0,-6" />
+                <Switch IsToggled="{Binding PersonalDetails.LikeSignaturePad}" />
+
+            </StackLayout>
+        </ScrollView>
+
+        <!-- navigation -->
+        <Button Text="&lt; Back" Clicked="OnBackClicked"
+                Grid.Row="1" Grid.Column="0" />
+        <Button Text="Continue &gt;" Clicked="OnNextClicked"
+                Grid.Row="1" Grid.Column="1" />
+
+    </Grid>
+
+</ContentPage>
