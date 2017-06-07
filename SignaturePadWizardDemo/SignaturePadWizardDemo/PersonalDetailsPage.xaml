@@ -32,10 +32,10 @@
                 <Entry Placeholder="visual studio, vs code, emacs, vim, notepad" Text="{Binding PersonalDetails.FavouriteIde}" />
 
                 <Label Text="Do you like Xamarin.Forms:" Margin="0,0,0,-6" />
-                <Switch IsToggled="{Binding PersonalDetails.LikeXamarinForms}" />
+                <Switch IsToggled="{Binding PersonalDetails.LikeXamarinForms}" HorizontalOptions="Start" />
 
                 <Label Text="Do you like SignaturePad:" Margin="0,0,0,-6" />
-                <Switch IsToggled="{Binding PersonalDetails.LikeSignaturePad}" />
+                <Switch IsToggled="{Binding PersonalDetails.LikeSignaturePad}" HorizontalOptions="Start" />
 
             </StackLayout>
         </ScrollView>
